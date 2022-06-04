@@ -1,0 +1,117 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 660px;
+    min-height: 830px;
+    background-color: #daa6db;
+}
+
+.display {
+    background-color: rgb(218, 200, 218);
+    width: 100%;
+    max-width: 495px;
+    min-width: 535px;
+    min-height: 160px;
+    max-height: 160px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    border: inset #ff002d57 3px;
+    border-radius: 5px;
+    font-size: 24px;
+}
+
+
+.buttons {
+    display: flex;
+    min-width: 620px;
+    justify-content: space-between;
+}
+
+.operands {
+    display: flex;
+    flex-direction: column;
+    min-width: 450px;
+    min-height: 500px;
+    margin-top: 25px;
+}
+
+.numbers {
+    display: flex;
+    min-width: 310px;
+    min-height: 132px;
+    justify-content: space-between;
+}
+
+.numbers div {
+    display: flex;
+    min-width: 135px;
+    min-height: 135px;
+    background-color: #8cf3eea3;
+    margin-top: 10px;
+    border-radius: 15%;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    align-self: center;
+    box-shadow: 1px 5px 5px;
+    border: solid black 1px;
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-width: 100px;
+    min-height: 532px;
+    margin-top: 25px;
+}
+
+.operators div {
+    display: flex;
+    min-width: 135px;
+    min-height: 135px;
+    background-color: #8cf3eea3;
+    border-radius: 15%;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    box-shadow: 1px 5px 5px;
+    border: solid black 1px;
+}
+
+#zero {
+    display: flex;
+    min-width: 135px;
+    min-height: 135px;
+    background-color: #8cf3eea3;
+    border-radius: 15%;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    align-self: center;
+    box-shadow: 1px 5px 5px;
+    border: solid black 1px;
+}
+
+#press {
+    background-color: #49a9a4a3;
+}
