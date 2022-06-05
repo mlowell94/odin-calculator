@@ -16,6 +16,22 @@ numbers.forEach(number => {
             number.removeAttribute('id')
         }, 50);
         switch(number.textContent) {
+            case 'AC':
+                currentFirst = null;
+                currentSecond = null;
+                currentOperator = '';
+                currentStringInt = '';
+                decPressed = false;
+                current.textContent = '';
+                previous.textContent = '';
+                break;
+            case 'C':
+                if(currentStringInt.slice(-1) == '.') {
+                    decPressed = false;
+                }
+                currentStringInt = currentStringInt.slice(0, -1);
+                current.textContent = current.textContent.slice(0, -1);
+                break;
             case '0':
                 if(!currentStringInt) {
                     break;
@@ -88,14 +104,14 @@ numbers.forEach(number => {
                     } else {
                         currentSecond = parseInt(currentStringInt);
                     }
-                currentStringInt = '';
-                previous.textContent = `${currentFirst} ${currentOperator} ${currentSecond}`
-                result = operate(currentFirst,currentSecond,currentOperator);
-                currentFirst = result;
-                current.textContent = result;
-                console.log(currentFirst);
-                console.log(currentSecond);
-                break;
+                    currentStringInt = '';
+                    previous.textContent = `${currentFirst} ${currentOperator} ${currentSecond}`
+                    result = operate(currentFirst,currentSecond,currentOperator);
+                    currentFirst = result;
+                    current.textContent = result;
+                    console.log(currentFirst);
+                    console.log(currentSecond);
+                    break;
                 }
             default:
                 console.log('Error');
@@ -106,7 +122,10 @@ numbers.forEach(number => {
 operators.forEach(operator => {
     operator.addEventListener('click', function(e) {
         operators.forEach(operator => operator.removeAttribute('id'));
-        operator.setAttribute('id','press');
+        if(currentFirst == null && currentStringInt == '') {
+            return;
+        }
+        operator.setAttribute('id','pressope');
         switch(operator.textContent) {
             case '+':
                 decPressed = false;
@@ -220,6 +239,11 @@ function operate(first,second,ope) {
             result = first - second;
             break;
         case '%':
+            if(second == 0) {
+                console.log('running');
+                alert('Did you think this humble HTML calculator was capable of such things? I am flattered :). For you, I will return the result of 1.');
+                return 1;
+            }
             result = first / second;
             break;
         case 'x':
@@ -227,6 +251,9 @@ function operate(first,second,ope) {
             break;
         default:
             console.log(error);
+    }
+    if(typeof result === 'float') {
+        return result.toFixed(3);
     }
     return result;
 }

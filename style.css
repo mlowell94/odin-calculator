@@ -2,11 +2,18 @@ html, body {
     height: 100%;
 }
 
+@font-face {
+    font-family: "custom";
+    src: url("TinyUnicode.ttf")
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
+    font-family: "custom", sans-serif;
+    flex-direction: column;
+    background-image: url('Goh_Slowpoke.webp');
 }
 
 .wrapper {
@@ -15,9 +22,11 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-width: 660px;
+    min-width: 625px;
     min-height: 830px;
-    background-color: #daa6db;
+    background-color: #daa6dbd4;
+    border-radius: 5%;
+    box-shadow: 3px 2px 8px;
 }
 
 .display {
@@ -34,36 +43,36 @@ body {
     align-items: flex-end;
     border: inset #ff002d57 3px;
     border-radius: 5px;
-    font-size: 24px;
+    font-size: 48px;
 }
 
 
 .buttons {
     display: flex;
     min-width: 620px;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .operands {
     display: flex;
     flex-direction: column;
-    min-width: 450px;
-    min-height: 500px;
+    min-width: 400px;
+    max-height: 460px;
     margin-top: 25px;
 }
 
 .numbers {
     display: flex;
-    min-width: 310px;
-    min-height: 132px;
-    justify-content: space-between;
+    min-width: 300px;
+    min-height: 115px;
+    justify-content: space-evenly;
 }
 
 .numbers div {
     display: flex;
-    min-width: 135px;
-    min-height: 135px;
-    background-color: #8cf3eea3;
+    min-width: 100px;
+    min-height: 100px;
+    background-color: #8cf3ee;
     margin-top: 10px;
     border-radius: 15%;
     justify-content: center;
@@ -87,7 +96,7 @@ body {
     display: flex;
     min-width: 135px;
     min-height: 135px;
-    background-color: #8cf3eea3;
+    background-color: #f38c91;
     border-radius: 15%;
     margin-top: 10px;
     justify-content: center;
@@ -114,4 +123,23 @@ body {
 
 #press {
     background-color: #49a9a4a3;
+}
+
+#pressope {
+    background-color: #b37275b8;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    font-size: 18px;
+}
+
+.footer p {
+    margin: 0;
 }
