@@ -68,6 +68,7 @@ numbers.forEach(number => {
                 } else {
                     break;
                 }
+                break;
             case '=':
                 operators.forEach(operator => operator.removeAttribute('id'));
                 if(currentFirst == null) {
@@ -108,8 +109,13 @@ operators.forEach(operator => {
         operator.setAttribute('id','press');
         switch(operator.textContent) {
             case '+':
+                decPressed = false;
                 if(currentFirst == null) {
+                    if(currentStringInt.includes('.')) {
+                        currentFirst = parseFloat(currentStringInt);
+                    } else {
                     currentFirst = parseInt(currentStringInt);
+                    }
                     currentStringInt = '';
                 } else {
                     if(currentStringInt == '') {
@@ -127,8 +133,13 @@ operators.forEach(operator => {
                 currentOperator = '+';
                 break;
             case '-':
+                decPressed = false;
                 if(currentFirst == null) {
+                    if(currentStringInt.includes('.')) {
+                        currentFirst = parseFloat(currentStringInt);
+                    } else {
                     currentFirst = parseInt(currentStringInt);
+                    }
                     currentStringInt = '';
                 } else {
                     if(currentStringInt == '') {
@@ -146,8 +157,13 @@ operators.forEach(operator => {
                 currentOperator = '-';
                 break;
             case '%':
+                decPressed = false;
                 if(currentFirst == null) {
+                    if(currentStringInt.includes('.')) {
+                        currentFirst = parseFloat(currentStringInt);
+                    } else {
                     currentFirst = parseInt(currentStringInt);
+                    }
                     currentStringInt = '';
                 } else {
                     if(currentStringInt == '') {
@@ -165,8 +181,13 @@ operators.forEach(operator => {
                 currentOperator = '%';
                 break;
             case 'x':
+                decPressed = false;
                 if(currentFirst == null) {
+                    if(currentStringInt.includes('.')) {
+                        currentFirst = parseFloat(currentStringInt);
+                    } else {
                     currentFirst = parseInt(currentStringInt);
+                    }
                     currentStringInt = '';
                 } else {
                     if(currentStringInt == '') {
