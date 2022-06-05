@@ -41,18 +41,26 @@ numbers.forEach(number => {
                 }
                 break;            
             case '1':
-                if(!currentStringInt && currentSecond != null) {
-                    currentSecond = 1;
+                if(currentFirst != null && currentSecond != null) {
+                    currentFirst = null;
+                    currentSecond = null;
+                    currentOperator = '';
                     currentStringInt = '';
+                    decPressed = false;
+                    current.textContent = '';
                     decPressed = false;
                 }
                 currentStringInt += '1';
                 current.textContent = currentStringInt;
                 break;            
             case '2':
-                if(!currentStringInt && currentSecond != null) {
-                    currentSecond = 2;
+                if(currentFirst != null && currentSecond != null) {
+                    currentFirst = null;
+                    currentSecond = null;
+                    currentOperator = '';
                     currentStringInt = '';
+                    decPressed = false;
+                    current.textContent = '';
                     decPressed = false;
                 }
                 currentStringInt += '2';
@@ -61,9 +69,13 @@ numbers.forEach(number => {
             case '3':
                 console.log(`currentFirst on 3 start = ${currentFirst}`);
                 console.log(`currentSecond on 3 start = ${currentSecond}`);
-                if(!currentStringInt && currentSecond != null) {
-                    currentSecond = 3;
+                if(currentFirst != null && currentSecond != null) {
+                    currentFirst = null;
+                    currentSecond = null;
+                    currentOperator = '';
                     currentStringInt = '';
+                    decPressed = false;
+                    current.textContent = '';
                     decPressed = false;
                 }
                 console.log(`currentFirst on 3 end = ${currentFirst}`);
@@ -72,54 +84,78 @@ numbers.forEach(number => {
                 current.textContent = currentStringInt;
                 break;            
             case '4':
-                if(!currentStringInt && currentSecond != null) {
-                    currentSecond = 4;
+                if(currentFirst != null && currentSecond != null) {
+                    currentFirst = null;
+                    currentSecond = null;
+                    currentOperator = '';
                     currentStringInt = '';
+                    decPressed = false;
+                    current.textContent = '';
                     decPressed = false;
                 }
                 currentStringInt += '4';
                 current.textContent = currentStringInt;
                 break;            
             case '5':
-                if(!currentStringInt && currentSecond != null) {
-                    currentSecond = 5;
+                if(currentFirst != null && currentSecond != null) {
+                    currentFirst = null;
+                    currentSecond = null;
+                    currentOperator = '';
                     currentStringInt = '';
+                    decPressed = false;
+                    current.textContent = '';
                     decPressed = false;
                 }
                 currentStringInt += '5';
                 current.textContent = currentStringInt;
                 break;
             case '6':
-                if(!currentStringInt && currentSecond != null) {
-                    currentSecond = 6;
+                if(currentFirst != null && currentSecond != null) {
+                    currentFirst = null;
+                    currentSecond = null;
+                    currentOperator = '';
                     currentStringInt = '';
+                    decPressed = false;
+                    current.textContent = '';
                     decPressed = false;
                 }
                 currentStringInt += '6';
                 current.textContent = currentStringInt;
                 break;
             case '7':
-                if(!currentStringInt && currentSecond != null) {
-                    currentSecond = 7;
+                if(currentFirst != null && currentSecond != null) {
+                    currentFirst = null;
+                    currentSecond = null;
+                    currentOperator = '';
                     currentStringInt = '';
+                    decPressed = false;
+                    current.textContent = '';
                     decPressed = false;
                 }
                 currentStringInt += '7';
                 current.textContent = currentStringInt;
                 break;            
             case '8':
-                if(!currentStringInt && currentSecond != null) {
-                    currentSecond = 8;
+                if(currentFirst != null && currentSecond != null) {
+                    currentFirst = null;
+                    currentSecond = null;
+                    currentOperator = '';
                     currentStringInt = '';
+                    decPressed = false;
+                    current.textContent = '';
                     decPressed = false;
                 }
                 currentStringInt += '8';
                 current.textContent = currentStringInt;
                 break;            
             case '9':
-                if(!currentStringInt && currentSecond != null) {
-                    currentSecond = 9;
+                if(currentFirst != null && currentSecond != null) {
+                    currentFirst = null;
+                    currentSecond = null;
+                    currentOperator = '';
                     currentStringInt = '';
+                    decPressed = false;
+                    current.textContent = '';
                     decPressed = false;
                 }
                 currentStringInt += '9';
@@ -127,6 +163,15 @@ numbers.forEach(number => {
                 break;
             case '.': 
                 if(!decPressed) {
+                    if(currentFirst != null && currentSecond != null) {
+                        currentFirst = null;
+                        currentSecond = null;
+                        currentOperator = '';
+                        currentStringInt = '';
+                        decPressed = false;
+                        current.textContent = '';
+                        decPressed = false;
+                    }    
                     currentStringInt += '.';
                     current.textContent = currentStringInt;
                     decPressed = true;
@@ -188,6 +233,9 @@ operators.forEach(operator => {
                     }
                     currentStringInt = '';
                 } else {
+                    if(currentFirst != null && currentSecond != null) {
+                        currentSecond = null;
+                    } else {
                     if(currentStringInt == '') {
                         previous.textContent = current.textContent;
                         current.textContent = '';
@@ -200,6 +248,7 @@ operators.forEach(operator => {
                     current.textContent = result;    
                     }
                 }
+            }
                 currentOperator = '+';
                 break;
             case '-':
@@ -212,6 +261,9 @@ operators.forEach(operator => {
                     }
                     currentStringInt = '';
                 } else {
+                    if(currentFirst != null && currentSecond != null) {
+                        currentSecond = null;
+                    } else {
                     if(currentStringInt == '') {
                         previous.textContent = current.textContent;
                         current.textContent = '';
@@ -224,6 +276,7 @@ operators.forEach(operator => {
                     current.textContent = result;    
                     }
                 }
+            }
                 currentOperator = '-';
                 break;
             case '%':
@@ -236,6 +289,9 @@ operators.forEach(operator => {
                     }
                     currentStringInt = '';
                 } else {
+                    if(currentFirst != null && currentSecond != null) {
+                        currentSecond = null;
+                    } else {
                     if(currentStringInt == '') {
                         previous.textContent = current.textContent;
                         current.textContent = '';
@@ -248,6 +304,7 @@ operators.forEach(operator => {
                     current.textContent = result;    
                     }
                 }
+            }
                 currentOperator = '%';
                 break;
             case 'x':
@@ -260,6 +317,9 @@ operators.forEach(operator => {
                     }
                     currentStringInt = '';
                 } else {
+                    if(currentFirst != null && currentSecond != null) {
+                        currentSecond = null;
+                    } else {
                     if(currentStringInt == '') {
                         previous.textContent = current.textContent;
                         current.textContent = '';
@@ -272,6 +332,7 @@ operators.forEach(operator => {
                     current.textContent = result;    
                     }
                 }
+            }
                 currentOperator = 'x';
                 console.log(`currentFirst on multiply end = ${currentFirst}`);
                 console.log(`currentSecond on multiply end = ${currentSecond}`);                
